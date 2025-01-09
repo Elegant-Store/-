@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Elegant Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://raw.githubusercontent.com/Elegant-Store/-/main/Shopping-Cart-Emoji.png" type="image/png">
     <style>
@@ -27,12 +27,6 @@
             margin-bottom: 20px;
         }
 
-        .slogan {
-            font-size: 1.5em;
-            color: #ff69b4;
-            margin-top: 10px;
-        }
-
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -52,8 +46,6 @@
             text-align: left;
             color: white;
             transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
-            max-width: 300px;
-            margin: auto;
         }
 
         .product-card:hover {
@@ -81,11 +73,6 @@
             font-size: 1.2em;
             color: #ff69b4;
             margin-bottom: 10px;
-        }
-
-        .product-stock {
-            font-size: 1em;
-            margin-bottom: 15px;
         }
 
         .buy-button {
@@ -132,156 +119,94 @@
             height: 30px;
         }
 
-        .elegant {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 6em;
+        .checkout {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .checkout h2 {
+            margin-bottom: 20px;
+        }
+
+        .checkout button {
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 5px;
             color: white;
-            background: linear-gradient(to top, blue, white);
-            background-clip: text;
-            -webkit-background-clip: text;
-            text-shadow: 0 4px 6px rgba(0, 0, 255, 0.6), 0 4px 12px rgba(0, 0, 255, 0.8);
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: background 0.5s, text-shadow 0.5s;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .elegant:hover {
-            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-            background-clip: text;
-            -webkit-background-clip: text;
-            text-shadow: 0 4px 6px rgba(255, 0, 0, 0.6), 0 4px 12px rgba(255, 0, 0, 0.8);
-        }
-
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
+        .checkout button:hover {
+            background-color: #ff1493;
         }
     </style>
 </head>
 <body>
-    <canvas id="snowCanvas"></canvas>
-    <button class="cart-icon" onclick="redirectToCart()">
-        <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/Shopping-Cart-Emoji.png" alt="Cart">
-    </button>
-
-    <h1>Products</h1>
-    <p class="slogan">Unlock Victory – Buy Elegant Cheats Now!</p>
-
+    <h1>Elegant Store</h1>
     <div class="container">
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Index" class="product-image">
+        <div class="product-card" data-name="Intellect External" data-price="5" data-stock="10">
+            <img src="https://via.placeholder.com/300x200" alt="Intellect External" class="product-image">
             <div class="product-content">
-                <div class="product-name">Index</div>
+                <div class="product-name">Intellect External</div>
+                <div class="product-price">€5.00</div>
+                <button class="buy-button" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-name="Anti-Cheat Ping" data-price="8" data-stock="5">
+            <img src="https://via.placeholder.com/300x200" alt="Anti-Cheat Ping" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Anti-Cheat Ping</div>
                 <div class="product-price">€8.00</div>
-                <div class="product-stock">Stock: <span id="stock1">4</span></div>
-                <a href="#" class="buy-button" onclick="updateStock('stock1')">Buy Now</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Product 1" class="product-image">
-            <div class="product-content">
-                <div class="product-name">Anti Cheat Ping</div>
-                <div class="product-price">€8.00</div>
-                <div class="product-stock">Stock: <span id="stock1">4</span></div>
-                <a href="#" class="buy-button" onclick="updateStock('stock1')">Buy Now</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/Stitle.avif" alt="Product 2" class="product-image">
-            <div class="product-content">
-                <div class="product-name">Stitle</div>
-                <div class="product-price">€10.00</div>
-                <div class="product-stock">Stock: <span id="stock2">3</span></div>
-                <a href="#" class="buy-button" onclick="updateStock('stock2')">Buy Now</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/intelect%20cheat%20ping.avif" alt="Product 3" class="product-image">
-            <div class="product-content">
-                <div class="product-name">Intellect Cheat Ping</div>
-                <div class="product-price">€12.00</div>
-                <div class="product-stock">Stock: <span id="stock3">5</span></div>
-                <a href="#" class="buy-button" onclick="updateStock('stock3')">Buy Now</a>
+                <button class="buy-button" onclick="addToCart(this)">Add to Cart</button>
             </div>
         </div>
     </div>
 
-    <div class="elegant">ELEGANT</div>
+    <div class="checkout">
+        <h2>Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: <span id="total-price">€0.00</span></p>
+        <button onclick="proceedToCheckout()">Checkout</button>
+    </div>
 
     <script>
-        function updateStock(stockId) {
-            const stockElement = document.getElementById(stockId);
-            let stock = parseInt(stockElement.textContent);
-            if (stock > 0) {
-                stock--;
-                stockElement.textContent = stock;
-            } else {
-                alert('Out of stock!');
-            }
+        const cart = [];
+        const cartItems = document.getElementById("cart-items");
+        const totalPrice = document.getElementById("total-price");
+        const checkoutSection = document.querySelector(".checkout");
+
+        function addToCart(button) {
+            const card = button.closest(".product-card");
+            const name = card.getAttribute("data-name");
+            const price = parseFloat(card.getAttribute("data-price"));
+            cart.push({ name, price });
+            updateCart();
         }
 
-        function redirectToCart() {
-            const cartURL = "https://your-cart-link-here.com";
-            window.location.href = cartURL;
+        function updateCart() {
+            cartItems.innerHTML = "";
+            let total = 0;
+            cart.forEach((item) => {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - €${item.price.toFixed(2)}`;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+            totalPrice.textContent = `€${total.toFixed(2)}`;
+            checkoutSection.style.display = "flex";
         }
 
-        const canvas = document.getElementById('snowCanvas');
-        const ctx = canvas.getContext('2d');
-        const snowflakes = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+        function proceedToCheckout() {
+            alert("Proceeding to payment. Implement PayPal or other APIs.");
+            cart.length = 0;
+            updateCart();
+            checkoutSection.style.display = "none";
         }
-
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        function createSnowflake() {
-            return {
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height - canvas.height,
-                radius: Math.random() * 3 + 2,
-                speed: Math.random() * 3 + 1,
-            };
-        }
-
-        function updateSnowflakes() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = snowflakes.length - 1; i >= 0; i--) {
-                const flake = snowflakes[i];
-                flake.y += flake.speed;
-                if (flake.y > canvas.height) {
-                    snowflakes.splice(i, 1);
-                } else {
-                    ctx.beginPath();
-                    ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = 'white';
-                    ctx.fill();
-                }
-            }
-            if (snowflakes.length < 100) {
-                snowflakes.push(createSnowflake());
-            }
-        }
-
-        function animateSnowflakes() {
-            updateSnowflakes();
-            requestAnimationFrame(animateSnowflakes);
-        }
-
-        animateSnowflakes();
     </script>
 </body>
 </html>
