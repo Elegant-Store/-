@@ -51,7 +51,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             text-align: center;
         }
@@ -77,15 +77,16 @@
         }
 
         .product-info p {
-            font-size: 1.3em;
+            font-size: 1.2em;
             margin-bottom: 20px;
             color: #ff69b4;
         }
 
-        .purchase-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .description {
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #e0e0e0;
+            line-height: 1.5em;
         }
 
         .purchase-section button {
@@ -98,6 +99,7 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+            margin-top: auto;
         }
 
         .purchase-section button:hover {
@@ -135,12 +137,15 @@
 
     <div class="container">
         <div class="product-info">
+            <h1>If u wanna win, get yourself Anti Cheat</h1>
             <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Anti Cheat Ping">
-            <h1>Anti Cheat Ping</h1>
             <p>Price: €15.00</p>
             <p>Stock: 0</p>
-        </div>
-        <div class="purchase-section">
+            <div class="description">
+                With <strong>Anti Cheat Ping</strong>, you'll dominate your games like never before.  
+                Our advanced tool ensures flawless performance and bypasses all known obstacles. 
+                Get ready to take your skills to the next level with Anti Cheat!
+            </div>
             <button onclick="alert('Out of Stock!')">Buy Now</button>
         </div>
     </div>
