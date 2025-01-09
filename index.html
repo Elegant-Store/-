@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Custom Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://raw.githubusercontent.com/Elegant-Store/-/main/Shopping-Cart-Emoji.png" type="image/png">
     <style>
         body {
+            margin: 0;
+            font-family: Arial, sans-serif;
             background-color: black;
             color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-            height: 100vh;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
         }
-        h1 {
+        .title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
             font-size: 3em;
             margin-bottom: 10px;
         }
-        .slogan {
-            font-size: 1.5em;
-            color: #ff69b4;
-            margin-top: 10px;
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 1.2em;
+            margin-top: -10px;
         }
         .elegant {
             font-family: 'Playfair Display', serif;
@@ -36,14 +40,55 @@
             background-clip: text;
             -webkit-background-clip: text;
             text-shadow: 0 4px 6px rgba(0, 0, 255, 0.6), 0 4px 12px rgba(0, 0, 255, 0.8);
-            margin-top: 40px;
+            margin-top: 20px;
+        }
+        .image-container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>Products</h1>
-    <p class="slogan">Unlock Victory – Buy Elegant Cheats Now!</p>
-    <!-- Add more content or products here -->
+    <div class="title">Cheats Container</div>
+    <div class="subtitle">Best Cheats At Same Place</div>
     <div class="elegant">ELEGANT</div>
+    <div class="image-container">
+        <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/cheat%20ui.png" alt="Custom Image">
+    </div>
+    <div class="button-container">
+        <a href="#" class="button">Learn More</a>
+        <a href="#" class="button">Buy</a>
+    </div>
 </body>
 </html>
