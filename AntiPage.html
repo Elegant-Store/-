@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,3 +53,42 @@
         }
 
         .product-info p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .purchase-section {
+            flex: 1;
+            text-align: center;
+        }
+
+        .purchase-section button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .purchase-section button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-info">
+            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Anti Cheat Ping">
+            <h1>Anti Cheat Ping</h1>
+            <p>Price: €15.00</p>
+            <p>Stock: 0</p>
+        </div>
+        <div class="purchase-section">
+            <button onclick="alert('Out of Stock!')">Buy Now</button>
+        </div>
+    </div>
+</body>
+</html>
