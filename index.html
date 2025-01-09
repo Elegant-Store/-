@@ -133,24 +133,28 @@
     <div class="elegant">ELEGANT</div>
 
     <script>
-        // Dynamically add more snowflakes to the page
+        // Function to create snowflakes with a delay between each batch
         function createSnowflakes() {
-            const snowflakeCount = 20; // Adjust the number of snowflakes
-            for (let i = 0; i < snowflakeCount; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.classList.add('snowflake');
-                snowflake.textContent = '❄';
-                // Randomize the position of snowflakes
-                snowflake.style.left = `${Math.random() * 100}%`; // Randomize the left position
-                snowflake.style.animationDuration = `${Math.random() * 3 + 6}s`; // Randomize speed
-                document.body.appendChild(snowflake);
+            const snowflakeCount = 20; // Adjust the number of snowflakes per batch
+            const delay = 3000; // Delay time in milliseconds (3 seconds)
+            
+            // Add snowflakes every 3-4 seconds
+            setInterval(() => {
+                for (let i = 0; i < snowflakeCount; i++) {
+                    const snowflake = document.createElement('div');
+                    snowflake.classList.add('snowflake');
+                    snowflake.textContent = '❄';
+                    // Randomize the position of snowflakes
+                    snowflake.style.left = `${Math.random() * 100}%`; // Randomize the left position
+                    snowflake.style.animationDuration = `${Math.random() * 3 + 6}s`; // Randomize speed
+                    document.body.appendChild(snowflake);
 
-                // Once the animation starts, remove the snowflake when it reaches the bottom
-                snowflake.addEventListener('animationiteration', () => {
-                    snowflake.remove(); // Remove snowflake when it completes its animation
-                    createSnowflakes(); // Create a new snowflake to replace it
-                });
-            }
+                    // Once the animation starts, remove the snowflake when it reaches the bottom
+                    snowflake.addEventListener('animationiteration', () => {
+                        snowflake.remove(); // Remove snowflake when it completes its animation
+                    });
+                }
+            }, delay); // New snowflakes created every 3-4 seconds
         }
 
         // Call the function to create snowflakes
