@@ -102,6 +102,8 @@
             font-size: 1.5em;
             user-select: none;
             animation: fall 6s linear infinite;
+            left: calc(100% * var(--random-left)); /* Random left position */
+            animation-duration: calc(6s + (random() * 3s)); /* Random speed for each snowflake */
         }
 
         /* Snowflakes Falling Animation */
@@ -116,16 +118,28 @@
             }
         }
 
-        /* Create multiple snowflakes with random positions and speeds */
-        .snowflake:nth-child(1) { left: 10%; animation-duration: 8s; }
-        .snowflake:nth-child(2) { left: 20%; animation-duration: 7s; }
-        .snowflake:nth-child(3) { left: 30%; animation-duration: 6.5s; }
-        .snowflake:nth-child(4) { left: 40%; animation-duration: 9s; }
-        .snowflake:nth-child(5) { left: 50%; animation-duration: 7s; }
-        .snowflake:nth-child(6) { left: 60%; animation-duration: 8s; }
-        .snowflake:nth-child(7) { left: 70%; animation-duration: 7.5s; }
-        .snowflake:nth-child(8) { left: 80%; animation-duration: 6s; }
-        .snowflake:nth-child(9) { left: 90%; animation-duration: 9s; }
+        /* Apply random left values and animation durations */
+        .snowflake:nth-child(1) { --random-left: 0.05; }
+        .snowflake:nth-child(2) { --random-left: 0.1; }
+        .snowflake:nth-child(3) { --random-left: 0.15; }
+        .snowflake:nth-child(4) { --random-left: 0.2; }
+        .snowflake:nth-child(5) { --random-left: 0.25; }
+        .snowflake:nth-child(6) { --random-left: 0.3; }
+        .snowflake:nth-child(7) { --random-left: 0.35; }
+        .snowflake:nth-child(8) { --random-left: 0.4; }
+        .snowflake:nth-child(9) { --random-left: 0.45; }
+
+        /* More snowflakes added for randomness */
+        .snowflake:nth-child(10) { --random-left: 0.5; }
+        .snowflake:nth-child(11) { --random-left: 0.55; }
+        .snowflake:nth-child(12) { --random-left: 0.6; }
+        .snowflake:nth-child(13) { --random-left: 0.65; }
+        .snowflake:nth-child(14) { --random-left: 0.7; }
+        .snowflake:nth-child(15) { --random-left: 0.75; }
+        .snowflake:nth-child(16) { --random-left: 0.8; }
+        .snowflake:nth-child(17) { --random-left: 0.85; }
+        .snowflake:nth-child(18) { --random-left: 0.9; }
+        .snowflake:nth-child(19) { --random-left: 0.95; }
 
     </style>
 </head>
@@ -133,7 +147,7 @@
     <div class="title">Cheats Container</div>
     <div class="subtitle">Best Cheats At Same Place</div>
     <div class="image-container">
-        <img src="https://raw.githubusercontent.com/Elegant-Store/-/refs/heads/main/anti%20cheat%20ping.avif" alt="Cheat UI">
+        <img src="https://raw.githubusercontent.com/Elegant-Store/-/refs/heads/main/anti%20cheat%20ping.avif" alt="Cheat UI" oncontextmenu="return false;">
     </div>
     <div class="button-container">
         <a href="#" class="button">Learn More</a>
