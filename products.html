@@ -35,8 +35,8 @@
 
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ensures cards fit dynamically */
+            gap: 20px; /* Space between cards */
             width: 100%;
             max-width: 1200px;
             margin-top: 40px;
@@ -51,7 +51,8 @@
             text-align: left;
             color: white;
             transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 10; /* Product cards appear above snowflakes */
+            max-width: 300px; /* Restricts the maximum size of the card */
+            margin: auto; /* Centers the card in its grid cell */
         }
 
         .product-card:hover {
@@ -61,8 +62,8 @@
 
         .product-image {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: 200px; /* Fixes the image height for consistency */
+            object-fit: cover; /* Ensures the image is scaled properly */
         }
 
         .product-content {
@@ -187,7 +188,6 @@
     <div class="elegant">ELEGANT</div>
 
     <script>
-        // Function to update stock
         function updateStock(stockId) {
             const stockElement = document.getElementById(stockId);
             let stock = parseInt(stockElement.textContent);
@@ -199,13 +199,11 @@
             }
         }
 
-        // Function to redirect to cart
         function redirectToCart() {
-            const cartURL = "https://your-cart-link-here.com"; // Replace with your cart link
+            const cartURL = "https://your-cart-link-here.com";
             window.location.href = cartURL;
         }
 
-        // Snowflake Animation
         const canvas = document.getElementById('snowCanvas');
         const ctx = canvas.getContext('2d');
         const snowflakes = [];
@@ -214,6 +212,7 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
+
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
@@ -232,7 +231,7 @@
                 const flake = snowflakes[i];
                 flake.y += flake.speed;
                 if (flake.y > canvas.height) {
-                    snowflakes.splice(i, 1); // Remove snowflake if it reaches the bottom
+                    snowflakes.splice(i, 1);
                 } else {
                     ctx.beginPath();
                     ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
