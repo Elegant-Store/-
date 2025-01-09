@@ -13,10 +13,10 @@
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
-            height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
+            align-items: center;
         }
         h1 {
             font-size: 3em;
@@ -27,23 +27,124 @@
             color: #ff69b4;
             margin-top: 10px;
         }
-        .elegant {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 6em;
-            color: white;
-            background: linear-gradient(to top, blue, white);
-            background-clip: text;
-            -webkit-background-clip: text;
-            text-shadow: 0 4px 6px rgba(0, 0, 255, 0.6), 0 4px 12px rgba(0, 0, 255, 0.8);
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
             margin-top: 40px;
+        }
+        .product-card {
+            background-color: #1e1e1e;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-content {
+            padding: 15px;
+        }
+        .product-name {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .product-price {
+            font-size: 1.2em;
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+        .product-stock {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        .buy-button {
+            display: inline-block;
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .buy-button:hover {
+            background-color: #ff1493;
         }
     </style>
 </head>
 <body>
     <h1>Products</h1>
     <p class="slogan">Unlock Victory – Buy Elegant Cheats Now!</p>
-    <!-- Add more content or products here -->
-    <div class="elegant">ELEGANT</div>
+    <div class="container">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="/mnt/data/image.png" alt="Index (Rapid Fire)" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Index (Rapid Fire)</div>
+                <div class="product-price">€8.00</div>
+                <div class="product-stock">Stock: <span id="stock1">4</span></div>
+                <a href="secondpage.html" class="buy-button" onclick="updateStock('stock1')">Buy Now</a>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="/mnt/data/image.png" alt="Silent Aim Pro" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Silent Aim Pro</div>
+                <div class="product-price">€12.00</div>
+                <div class="product-stock">Stock: <span id="stock2">6</span></div>
+                <a href="secondpage.html" class="buy-button" onclick="updateStock('stock2')">Buy Now</a>
+            </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="/mnt/data/image.png" alt="Mouse Teleport" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Mouse Teleport</div>
+                <div class="product-price">€15.00</div>
+                <div class="product-stock">Stock: <span id="stock3">3</span></div>
+                <a href="secondpage.html" class="buy-button" onclick="updateStock('stock3')">Buy Now</a>
+            </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="/mnt/data/image.png" alt="Ultimate Pack" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Ultimate Pack</div>
+                <div class="product-price">€20.00</div>
+                <div class="product-stock">Stock: <span id="stock4">2</span></div>
+                <a href="secondpage.html" class="buy-button" onclick="updateStock('stock4')">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateStock(stockId) {
+            const stockElement = document.getElementById(stockId);
+            let stock = parseInt(stockElement.textContent);
+            if (stock > 0) {
+                stock--;
+                stockElement.textContent = stock;
+            } else {
+                alert('Out of stock!');
+            }
+        }
+    </script>
 </body>
 </html>
