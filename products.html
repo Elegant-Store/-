@@ -182,37 +182,27 @@
                 <div class="product-name">Index</div>
                 <div class="product-price">€8.00</div>
                 <div class="product-stock">Stock: <span id="stock1">4</span></div>
-                <a href="#" class="buy-button" onclick="updateStock('stock1')">Buy Now</a>
+                <a href="IndexPage.html" class="buy-button">Details</a>
             </div>
         </div>
 
-<div class="product-card">
-    <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Anti Cheat Ping" class="product-image">
-    <div class="product-content">
-        <div class="product-name">Anti</div>
-        <div class="product-price">€15.00</div>
-        <div class="product-stock">Stock: <span id="stock1">0</span></div>
-        <a href="https://elegant-store.github.io/-/AntiPage.html" class="buy-button">Details</a>
-    </div>
-</div>
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Anti Cheat Ping" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Anti</div>
+                <div class="product-price">€15.00</div>
+                <div class="product-stock">Stock: <span id="stock2">0</span></div>
+                <a href="AntiPage.html" class="buy-button">Details</a>
+            </div>
+        </div>
 
         <div class="product-card">
-            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/Stitle.avif" alt="Product 2" class="product-image">
+            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/Stitle.avif" alt="Stitle" class="product-image">
             <div class="product-content">
                 <div class="product-name">Stitle</div>
                 <div class="product-price">€6.50</div>
-                <div class="product-stock">Stock: <span id="stock2">49</span></div>
-                <a href="#" class="buy-button" onclick="updateStock('stock2')">Buy Now</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/intelect%20cheat%20ping.avif" alt="Product 3" class="product-image">
-            <div class="product-content">
-                <div class="product-name">Intellect Cheat Ping</div>
-                <div class="product-price">€25.00</div>
-                <div class="product-stock">Stock: <span id="stock3">34</span></div>
-                <a href="#" class="buy-button" onclick="updateStock('stock3')">Buy Now</a>
+                <div class="product-stock">Stock: <span id="stock3">49</span></div>
+                <a href="StitlePage.html" class="buy-button">Details</a>
             </div>
         </div>
     </div>
@@ -220,17 +210,6 @@
     <div class="elegant">ELEGANT</div>
 
     <script>
-        function updateStock(stockId) {
-            const stockElement = document.getElementById(stockId);
-            let stock = parseInt(stockElement.textContent);
-            if (stock > 0) {
-                stock--;
-                stockElement.textContent = stock;
-            } else {
-                alert('Out of stock!');
-            }
-        }
-
         function redirectToCart() {
             const cartURL = "https://your-cart-link-here.com";
             window.location.href = cartURL;
