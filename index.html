@@ -9,48 +9,53 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: white;
-            color: black;
+            background-color: black; /* Black background */
+            color: white;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
             height: 100vh;
             position: relative;
+            overflow: hidden; /* Prevent snowflakes from overflowing */
         }
+
         .title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 4em;
-            margin-top: 20px; /* Moves the title to the top of the page */
+            margin-top: 20px; /* Title at the top */
         }
+
         .subtitle {
             font-family: 'Poppins', sans-serif;
             font-weight: 400;
             font-size: 1.5em;
             margin-top: 20px; /* Space between title and subtitle */
         }
+
         .image-container {
             position: relative;
-            width: 600px; /* Increased width for a bigger image */
-            height: 450px; /* Increased height for a bigger image */
-            background-color: #1e1e1e;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            width: 600px; /* Bigger image width */
+            height: 450px; /* Bigger image height */
+            background-color: transparent; /* No background */
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: 30px; /* Space between subtitle and image */
         }
+
         .image-container img {
             max-width: 100%;
             max-height: 100%;
         }
+
         .button-container {
             display: flex;
             gap: 20px;
             margin-top: 30px; /* Adds space below the UI */
         }
+
         .button {
             padding: 10px 20px;
             font-size: 1em;
@@ -62,9 +67,11 @@
             text-decoration: none;
             text-align: center;
         }
+
         .button:hover {
             background-color: #0056b3;
         }
+
         .elegant {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -80,11 +87,46 @@
             transform: translateX(-50%);
             transition: background 0.5s;
         }
+
         .elegant:hover {
             background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
             background-clip: text;
             -webkit-background-clip: text;
         }
+
+        /* Snowflakes Animation */
+        .snowflake {
+            position: absolute;
+            top: -10px; /* Start off-screen */
+            color: white;
+            font-size: 1.5em;
+            user-select: none;
+            animation: fall 6s linear infinite;
+        }
+
+        /* Snowflakes Falling Animation */
+        @keyframes fall {
+            0% {
+                top: -10px;
+                opacity: 1;
+            }
+            100% {
+                top: 100vh; /* Ends at the bottom of the screen */
+                opacity: 0;
+            }
+        }
+
+        /* Create multiple snowflakes with random positions and speeds */
+        .snowflake:nth-child(1) { left: 10%; animation-duration: 8s; }
+        .snowflake:nth-child(2) { left: 20%; animation-duration: 7s; }
+        .snowflake:nth-child(3) { left: 30%; animation-duration: 6.5s; }
+        .snowflake:nth-child(4) { left: 40%; animation-duration: 9s; }
+        .snowflake:nth-child(5) { left: 50%; animation-duration: 7s; }
+        .snowflake:nth-child(6) { left: 60%; animation-duration: 8s; }
+        .snowflake:nth-child(7) { left: 70%; animation-duration: 7.5s; }
+        .snowflake:nth-child(8) { left: 80%; animation-duration: 6s; }
+        .snowflake:nth-child(9) { left: 90%; animation-duration: 9s; }
+
     </style>
 </head>
 <body>
@@ -98,5 +140,16 @@
         <a href="https://elegant-store.github.io/-/products.html" class="button">Buy</a>
     </div>
     <div class="elegant">ELEGANT</div>
+
+    <!-- Snowflakes HTML Elements -->
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
 </body>
 </html>
