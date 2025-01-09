@@ -118,29 +118,6 @@
             }
         }
 
-        /* Randomize starting positions for snowflakes */
-        .snowflake:nth-child(1) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(2) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(3) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(4) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(5) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(6) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(7) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(8) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(9) { left: calc(100% * (random() * 1)); }
-
-        /* More snowflakes added for randomness */
-        .snowflake:nth-child(10) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(11) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(12) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(13) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(14) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(15) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(16) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(17) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(18) { left: calc(100% * (random() * 1)); }
-        .snowflake:nth-child(19) { left: calc(100% * (random() * 1)); }
-
     </style>
 </head>
 <body>
@@ -156,20 +133,43 @@
     <div class="elegant">ELEGANT</div>
 
     <!-- Snowflakes HTML Elements -->
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❄</div>
+    <div class="snowflake" style="left: 5%;">❄</div>
+    <div class="snowflake" style="left: 10%;">❄</div>
+    <div class="snowflake" style="left: 15%;">❄</div>
+    <div class="snowflake" style="left: 20%;">❄</div>
+    <div class="snowflake" style="left: 25%;">❄</div>
+    <div class="snowflake" style="left: 30%;">❄</div>
+    <div class="snowflake" style="left: 35%;">❄</div>
+    <div class="snowflake" style="left: 40%;">❄</div>
+    <div class="snowflake" style="left: 45%;">❄</div>
+    <div class="snowflake" style="left: 50%;">❄</div>
+    <div class="snowflake" style="left: 55%;">❄</div>
+    <div class="snowflake" style="left: 60%;">❄</div>
+    <div class="snowflake" style="left: 65%;">❄</div>
+    <div class="snowflake" style="left: 70%;">❄</div>
+    <div class="snowflake" style="left: 75%;">❄</div>
+    <div class="snowflake" style="left: 80%;">❄</div>
+    <div class="snowflake" style="left: 85%;">❄</div>
+    <div class="snowflake" style="left: 90%;">❄</div>
+    <div class="snowflake" style="left: 95%;">❄</div>
+
+    <script>
+        // Dynamically add more snowflakes to the page
+        function createSnowflakes() {
+            const snowflakeCount = 20; // Adjust the number of snowflakes
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.textContent = '❄';
+                // Randomize the position of snowflakes
+                snowflake.style.left = `${Math.random() * 100}%`; // Randomize the left position
+                snowflake.style.animationDuration = `${Math.random() * 3 + 6}s`; // Randomize speed
+                document.body.appendChild(snowflake);
+            }
+        }
+
+        // Call the function to create snowflakes
+        createSnowflakes();
+    </script>
 </body>
 </html>
