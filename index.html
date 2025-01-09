@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/Elegant-Store/-/main/Shopping-Cart-Emoji.png" type="image/png">
+
     <style>
         body {
             margin: 0;
@@ -32,7 +36,7 @@
             font-weight: 400;
             font-size: 1.2em;
             position: absolute;
-            top: 120px; /* Adjusted so the subtitle is positioned between the title and the image */
+            top: 120px;
         }
         .elegant {
             font-family: 'Playfair Display', serif;
@@ -44,7 +48,14 @@
             -webkit-background-clip: text;
             text-shadow: 0 4px 6px rgba(0, 0, 255, 0.6), 0 4px 12px rgba(0, 0, 255, 0.8);
             margin-top: 20px;
+            transition: color 0.3s ease;
         }
+
+        /* Hover effect for ELEGANT text */
+        .elegant:hover {
+            color: #ff69b4; /* Change color when hovered */
+        }
+
         .image-container {
             position: relative;
             width: 400px;
