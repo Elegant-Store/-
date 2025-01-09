@@ -3,47 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Elegant Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://raw.githubusercontent.com/Elegant-Store/-/main/Shopping-Cart-Emoji.png" type="image/png">
     <style>
         body {
             background-color: black;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .product-card {
+            background: linear-gradient(to top, purple, blue, black);
+            border: 2px solid #fff;
+            border-radius: 15px;
             text-align: center;
             padding: 20px;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        h1 {
-            font-size: 3em;
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.5);
+        }
+
+        .product-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
             margin-bottom: 10px;
         }
-        .slogan {
-            font-size: 1.5em;
+
+        .price {
+            font-size: 1.2em;
             color: #ff69b4;
-            margin-top: 10px;
+            margin-bottom: 10px;
         }
-        .elegant {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 6em;
+
+        .stock {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            background-color: #ff69b4;
             color: white;
-            background: linear-gradient(to top, blue, white);
-            background-clip: text;
-            -webkit-background-clip: text;
-            text-shadow: 0 4px 6px rgba(0, 0, 255, 0.6), 0 4px 12px rgba(0, 0, 255, 0.8);
-            margin-top: 40px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
+
+        .add-to-cart:hover {
+            background-color: #ff1493;
+        }
+
+        .cart-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+        }
+
     </style>
 </head>
 <body>
-    <h1>Products</h1>
-    <p class="slogan">Unlock Victory – Buy Elegant Cheats Now!</p>
-    <!-- Add more content or products here -->
-    <div class="elegant">ELEGANT</div>
+    <div class="container">
+        <!-- Product 1 -->
+        <div class="product-card" id="product1">
+            <img src="https://via.placeholder.com/100" alt="Product 1" class="cart-icon">
+            <div class="product-name">Index (Rapid Fire)</div>
+            <div class="price">€8.00</div>
+            <div class="stock">Stock: <span id="stock1">4</span></div>
+            <button class="add-to-cart" onclick="addToCart('stock1')">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" id="product2">
+            <img src="https://via.placeholder.com/100" alt="Product 2" class="cart-icon">
+            <div class="product-name">Silent Aim Pro</div>
+            <div class="price">€12.00</div>
+            <div class="stock">Stock: <span id="stock2">6</span></div>
+            <button class="add-to-cart" onclick="addToCart('stock2')">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" id="product3">
+            <img src="https://via.placeholder.com/100" alt="Product 3" class="cart-icon">
+            <div class="product-name">Mouse Teleport</div>
+            <div class="price">€15.00</div>
+            <div class="stock">Stock: <span id="stock3">3</span></div>
+            <button class="add-to-cart" onclick="addToCart('stock3')">Add to Cart</button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" id="product4">
+            <img src="https://via.placeholder.com/100" alt="Product 4" class="cart-icon">
+            <div class="product-name">Ultimate Pack</div>
+            <div class="price">€20.00</div>
+            <div class="stock">Stock: <span id="stock4">2</span></div>
+            <button class="add-to-cart" onclick="addToCart('stock4')">Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(stockId) {
+            const stockElement = document.getElementById(stockId);
+            let stock = parseInt(stockElement.textContent);
+            if (stock > 0) {
+                stock--;
+                stockElement.textContent = stock;
+                alert("Item added to cart! Redirecting to product page...");
+                window.location.href = "products.html"; // Change this to your desired page
+            } else {
+                alert("Out of stock!");
+            }
+        }
+    </script>
 </body>
 </html>
