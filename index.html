@@ -28,10 +28,6 @@
             display: flex;
             flex-direction: column;
             padding: 20px;
-            transition: transform 0.1s ease;
-        }
-        .ui-container:hover {
-            cursor: pointer;
         }
         .ui-title {
             font-size: 1.5em;
@@ -53,18 +49,6 @@
             margin-right: 10px;
         }
     </style>
-    <script>
-        document.addEventListener('mousemove', (event) => {
-            const ui = document.querySelector('.ui-container');
-            const rect = ui.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            const offsetX = (event.clientX - centerX) * 0.1;
-            const offsetY = (event.clientY - centerY) * 0.1;
-
-            ui.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-        });
-    </script>
 </head>
 <body>
     <div class="ui-container">
