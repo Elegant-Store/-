@@ -176,17 +176,50 @@
     <h1>Products</h1>
     <p class="slogan">Unlock Victory – Buy Elegant Cheats Now!</p>
 
-    <div class="container">
+   <div class="container">
         <div class="product-card">
             <img src="https://raw.githubusercontent.com/Elegant-Store/-/refs/heads/main/index%20rapid%20fire.avif" alt="Index" class="product-image">
             <div class="product-content">
                 <div class="product-name">Index</div>
                 <div class="product-price">€8.00</div>
-                <div class="product-stock">Stock: 4</div>
-                <a href="IndexCheatPage.html" class="buy-button">Details</a>
+                <div class="product-stock">Stock: <span id="stock1">4</span></div>
+                <a href="IndexPage.html" class="buy-button">Details</a>
             </div>
         </div>
-        <!-- Add other products here -->
+
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Anti Cheat Ping" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Anti</div>
+                <div class="product-price">€15.00</div>
+                <div class="product-stock">Stock: <span id="stock2">0</span></div>
+                <a href="AntiPage.html" class="buy-button">Details</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/Stitle.avif" alt="Stitle" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Stitle</div>
+                <div class="product-price">€6.50</div>
+                <div class="product-stock">Stock: <span id="stock3">49</span></div>
+                <a href="StitlePage.html" class="buy-button">Details</a>
+            </div>
+        </div>
+    </div>
+
+            <div class="product-card">
+            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/intelect%20cheat%20ping.avif" alt="Product 3" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Intellect Cheat Ping</div>
+                <div class="product-price">€25.00</div>
+                <div class="product-stock">Stock: <span id="stock3">34</span></div>
+                <a href="IntelectCheatPage.html" class="buy-button" onclick="updateStock('stock3')">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+        
     </div>
 
     <script>
