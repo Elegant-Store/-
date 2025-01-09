@@ -12,12 +12,8 @@
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(to bottom, #141414, #1e1e1e);
             color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            min-height: 100vh;
+            overflow-y: scroll; /* Enable vertical scrolling */
+            min-height: 150vh; /* Ensure page is scrollable */
             position: relative;
         }
 
@@ -39,7 +35,9 @@
             max-width: 800px;
             width: 90%;
             text-align: center;
-            z-index: 2; /* Above snowflakes */
+            margin: 50px auto;
+            z-index: 3; /* Above the ELEGANT text */
+            position: relative;
         }
 
         h1 {
@@ -105,11 +103,12 @@
             -webkit-background-clip: text;
             text-shadow: 0 4px 6px rgba(0, 0, 255, 0.6), 0 4px 12px rgba(0, 0, 255, 0.8);
             position: absolute;
-            bottom: 20px;
+            bottom: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
+            transform: translate(-50%, 50%);
+            z-index: 2; /* Behind container but above background */
             transition: background 0.5s, text-shadow 0.5s;
+            pointer-events: none; /* Prevent interfering with scrolling */
         }
 
         .elegant:hover {
@@ -123,6 +122,8 @@
 <body>
     <canvas id="snowCanvas"></canvas>
 
+    <div class="elegant">ELEGANT</div> <!-- Positioned behind the container -->
+
     <div class="container">
         <h1>If u wanna win, get yourself Anti Cheat</h1>
         <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Anti Cheat Ping">
@@ -131,14 +132,12 @@
             <span>Stock: 0</span>
         </div>
         <div class="description">
-            With <strong>Anti Cheat Ping</strong>, you'll dominate your games like never before.  
+            With <strong>Anti</strong>, you'll dominate your games like never before.  
             Our advanced tool ensures flawless performance and bypasses all known obstacles. 
             Get ready to take your skills to the next level with Anti Cheat!
         </div>
         <button onclick="alert('Out of Stock!')">Buy Now</button>
     </div>
-
-    <div class="elegant">ELEGANT</div>
 
     <script>
         const canvas = document.getElementById('snowCanvas');
