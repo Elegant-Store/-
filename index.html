@@ -12,10 +12,15 @@
             color: white;
             overflow: hidden;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             position: relative;
+        }
+        .title {
+            font-size: 2em;
+            margin-bottom: 20px;
         }
         .image-container {
             position: relative;
@@ -28,16 +33,40 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-bottom: 20px;
         }
         .image-container img {
             max-width: 100%;
             max-height: 100%;
         }
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
+    <div class="title">Custom Title</div>
     <div class="image-container">
         <img src="" alt="Custom Image">
+    </div>
+    <div class="button-container">
+        <a href="#" class="button">Learn More</a>
+        <a href="#" class="button">Buy</a>
     </div>
 </body>
 </html>
