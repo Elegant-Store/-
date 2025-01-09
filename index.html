@@ -132,27 +132,6 @@
     </div>
     <div class="elegant">ELEGANT</div>
 
-    <!-- Snowflakes HTML Elements -->
-    <div class="snowflake" style="left: 5%;">❄</div>
-    <div class="snowflake" style="left: 10%;">❄</div>
-    <div class="snowflake" style="left: 15%;">❄</div>
-    <div class="snowflake" style="left: 20%;">❄</div>
-    <div class="snowflake" style="left: 25%;">❄</div>
-    <div class="snowflake" style="left: 30%;">❄</div>
-    <div class="snowflake" style="left: 35%;">❄</div>
-    <div class="snowflake" style="left: 40%;">❄</div>
-    <div class="snowflake" style="left: 45%;">❄</div>
-    <div class="snowflake" style="left: 50%;">❄</div>
-    <div class="snowflake" style="left: 55%;">❄</div>
-    <div class="snowflake" style="left: 60%;">❄</div>
-    <div class="snowflake" style="left: 65%;">❄</div>
-    <div class="snowflake" style="left: 70%;">❄</div>
-    <div class="snowflake" style="left: 75%;">❄</div>
-    <div class="snowflake" style="left: 80%;">❄</div>
-    <div class="snowflake" style="left: 85%;">❄</div>
-    <div class="snowflake" style="left: 90%;">❄</div>
-    <div class="snowflake" style="left: 95%;">❄</div>
-
     <script>
         // Dynamically add more snowflakes to the page
         function createSnowflakes() {
@@ -165,6 +144,12 @@
                 snowflake.style.left = `${Math.random() * 100}%`; // Randomize the left position
                 snowflake.style.animationDuration = `${Math.random() * 3 + 6}s`; // Randomize speed
                 document.body.appendChild(snowflake);
+
+                // Once the animation starts, remove the snowflake when it reaches the bottom
+                snowflake.addEventListener('animationiteration', () => {
+                    snowflake.remove(); // Remove snowflake when it completes its animation
+                    createSnowflakes(); // Create a new snowflake to replace it
+                });
             }
         }
 
