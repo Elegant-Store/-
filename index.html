@@ -85,13 +85,14 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            transition: background 0.5s;
+            transition: background 0.5s, text-shadow 0.5s;
         }
 
         .elegant:hover {
             background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
             background-clip: text;
             -webkit-background-clip: text;
+            text-shadow: 0 4px 6px rgba(255, 0, 0, 0.6), 0 4px 12px rgba(255, 0, 0, 0.8); /* Rainbow glow effect */
         }
 
         /* Snowflakes Animation */
