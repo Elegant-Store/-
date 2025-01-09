@@ -9,162 +9,279 @@
     <style>
         body {
             margin: 0;
-            font-family: "Poppins", sans-serif;
-            background-color: #000;
-            color: #fff;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
             text-align: center;
-            padding: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
 
         h1 {
-            font-size: 3rem;
-            margin: 20px 0;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .slogan {
+            font-size: 1.5em;
+            color: #ff69b4;
+            margin-top: 10px;
         }
 
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
-            padding: 20px;
-            justify-content: center;
-        }
-
-        .card {
-            background-color: #1c1c1c;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
-        .card img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
+            max-width: 1200px;
+            margin-top: 40px;
+            z-index: 2;
         }
 
-        .card h3 {
-            margin: 15px 0;
-            font-size: 1.5rem;
-        }
-
-        .card p {
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-
-        .card button {
-            background-color: #ff007f;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .card button:hover {
-            background-color: #e60073;
-        }
-
-        .cart {
-            margin-top: 20px;
-            text-align: left;
-            padding: 20px;
-            background-color: #1c1c1c;
+        .product-card {
+            background-color: #1e1e1e;
+            border: 2px solid #333;
             border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+            max-width: 300px;
+            margin: auto;
         }
 
-        .cart h2 {
-            font-size: 1.5rem;
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+            border: 2px solid red;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 15px;
+        }
+
+        .product-name {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.2em;
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+
+        .product-stock {
+            font-size: 1em;
             margin-bottom: 15px;
         }
 
-        .cart ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .cart ul li {
-            margin: 10px 0;
-            font-size: 1.2rem;
-        }
-
-        .cart .total {
-            margin-top: 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .cart button {
-            background-color: #ff007f;
-            color: #fff;
+        .buy-button {
+            display: inline-block;
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
             border: none;
-            padding: 10px 15px;
             border-radius: 5px;
-            font-size: 1rem;
+            text-decoration: none;
+            font-size: 1em;
+            text-align: center;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 15px;
-            width: 100%;
+            transition: background-color 0.3s;
         }
 
-        .cart button:hover {
-            background-color: #e60073;
+        .buy-button:hover {
+            background-color: #ff1493;
+        }
+
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s;
+        }
+
+        .cart-icon:hover {
+            background-color: #ff1493;
+        }
+
+        .cart-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .elegant {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 6em;
+            color: white;
+            background: linear-gradient(to top, blue, white);
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-shadow: 0 4px 6px rgba(0, 0, 255, 0.6), 0 4px 12px rgba(0, 0, 255, 0.8);
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: background 0.5s, text-shadow 0.5s;
+        }
+
+        .elegant:hover {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-shadow: 0 4px 6px rgba(255, 0, 0, 0.6), 0 4px 12px rgba(255, 0, 0, 0.8);
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
+    <canvas id="snowCanvas"></canvas>
+    <button class="cart-icon" onclick="redirectToCart()">
+        <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/Shopping-Cart-Emoji.png" alt="Cart">
+    </button>
+
     <h1>Elegant Store</h1>
+    <p class="slogan">Unlock Victory – Buy Elegant Cheats Now!</p>
+
     <div class="container">
-        <!-- Product 1 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/250" alt="Product 1">
-            <h3>Intellect External</h3>
-            <p>€5.00</p>
-            <button>Add to Cart</button>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Product 1" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Intellect External</div>
+                <div class="product-price">€5.00</div>
+                <div class="product-stock">Stock: <span id="stock1">4</span></div>
+                <a href="#" class="buy-button" onclick="updateStock('stock1')">Buy Now</a>
+            </div>
         </div>
-        <!-- Product 2 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/250" alt="Product 2">
-            <h3>Anti-Cheat Ping</h3>
-            <p>€8.00</p>
-            <button>Add to Cart</button>
+
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Product 2" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Anti-Cheat Ping</div>
+                <div class="product-price">€8.00</div>
+                <div class="product-stock">Stock: <span id="stock2">5</span></div>
+                <a href="#" class="buy-button" onclick="updateStock('stock2')">Buy Now</a>
+            </div>
         </div>
-        <!-- Product 3 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/250" alt="Product 3">
-            <h3>Speed Booster</h3>
-            <p>€10.00</p>
-            <button>Add to Cart</button>
+
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Product 3" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Speed Booster</div>
+                <div class="product-price">€10.00</div>
+                <div class="product-stock">Stock: <span id="stock3">2</span></div>
+                <a href="#" class="buy-button" onclick="updateStock('stock3')">Buy Now</a>
+            </div>
         </div>
-        <!-- Product 4 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/250" alt="Product 4">
-            <h3>Elite Mod</h3>
-            <p>€15.00</p>
-            <button>Add to Cart</button>
+
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Product 4" class="product-image">
+            <div class="product-content">
+                <div class="product-name">Elite Mod</div>
+                <div class="product-price">€15.00</div>
+                <div class="product-stock">Stock: <span id="stock4">3</span></div>
+                <a href="#" class="buy-button" onclick="updateStock('stock4')">Buy Now</a>
+            </div>
         </div>
     </div>
 
-    <!-- Cart Section -->
-    <div class="cart">
-        <h2>Cart</h2>
-        <ul>
-            <li>Intellect External - €5.00</li>
-        </ul>
-        <div class="total">Total: €5.00</div>
-        <button>Checkout</button>
-    </div>
+    <div class="elegant">ELEGANT</div>
+
+    <script>
+        function updateStock(stockId) {
+            const stockElement = document.getElementById(stockId);
+            let stock = parseInt(stockElement.textContent);
+            if (stock > 0) {
+                stock--;
+                stockElement.textContent = stock;
+            } else {
+                alert('Out of stock!');
+            }
+        }
+
+        function redirectToCart() {
+            const cartURL = "https://your-cart-link-here.com";
+            window.location.href = cartURL;
+        }
+
+        const canvas = document.getElementById('snowCanvas');
+        const ctx = canvas.getContext('2d');
+        const snowflakes = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        function createSnowflake() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height - canvas.height,
+                radius: Math.random() * 3 + 2,
+                speed: Math.random() * 3 + 1,
+            };
+        }
+
+        function updateSnowflakes() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = snowflakes.length - 1; i >= 0; i--) {
+                const flake = snowflakes[i];
+                flake.y += flake.speed;
+                if (flake.y > canvas.height) {
+                    snowflakes.splice(i, 1);
+                } else {
+                    ctx.beginPath();
+                    ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'white';
+                    ctx.fill();
+                }
+            }
+            if (snowflakes.length < 100) {
+                snowflakes.push(createSnowflake());
+            }
+        }
+
+        function animateSnowflakes() {
+            updateSnowflakes();
+            requestAnimationFrame(animateSnowflakes);
+        }
+
+        animateSnowflakes();
+    </script>
 </body>
 </html>
