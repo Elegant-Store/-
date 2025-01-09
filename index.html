@@ -103,7 +103,6 @@
             font-size: 1.5em;
             user-select: none;
             animation: fall 6s linear infinite;
-            left: calc(100% * var(--random-left)); /* Random left position */
             animation-duration: calc(6s + (random() * 3s)); /* Random speed for each snowflake */
         }
 
@@ -119,28 +118,28 @@
             }
         }
 
-        /* Apply random left values for each snowflake */
-        .snowflake:nth-child(1) { --random-left: 0.05; }
-        .snowflake:nth-child(2) { --random-left: 0.1; }
-        .snowflake:nth-child(3) { --random-left: 0.15; }
-        .snowflake:nth-child(4) { --random-left: 0.2; }
-        .snowflake:nth-child(5) { --random-left: 0.25; }
-        .snowflake:nth-child(6) { --random-left: 0.3; }
-        .snowflake:nth-child(7) { --random-left: 0.35; }
-        .snowflake:nth-child(8) { --random-left: 0.4; }
-        .snowflake:nth-child(9) { --random-left: 0.45; }
+        /* Randomize starting positions for snowflakes */
+        .snowflake:nth-child(1) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(2) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(3) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(4) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(5) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(6) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(7) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(8) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(9) { left: calc(100% * (random() * 1)); }
 
         /* More snowflakes added for randomness */
-        .snowflake:nth-child(10) { --random-left: 0.5; }
-        .snowflake:nth-child(11) { --random-left: 0.55; }
-        .snowflake:nth-child(12) { --random-left: 0.6; }
-        .snowflake:nth-child(13) { --random-left: 0.65; }
-        .snowflake:nth-child(14) { --random-left: 0.7; }
-        .snowflake:nth-child(15) { --random-left: 0.75; }
-        .snowflake:nth-child(16) { --random-left: 0.8; }
-        .snowflake:nth-child(17) { --random-left: 0.85; }
-        .snowflake:nth-child(18) { --random-left: 0.9; }
-        .snowflake:nth-child(19) { --random-left: 0.95; }
+        .snowflake:nth-child(10) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(11) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(12) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(13) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(14) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(15) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(16) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(17) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(18) { left: calc(100% * (random() * 1)); }
+        .snowflake:nth-child(19) { left: calc(100% * (random() * 1)); }
 
     </style>
 </head>
