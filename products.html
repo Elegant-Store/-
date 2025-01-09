@@ -16,10 +16,10 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
-            overflow: hidden;
-            position: relative; /* Needed for snowflakes */
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
 
         h1 {
@@ -42,76 +42,93 @@
             margin-top: 40px;
         }
 
-        /* Product Card Styles */
         .product-card {
             background-color: #1e1e1e;
             border: 2px solid #333;
-            border-radius: 15px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(255, 105, 180, 0.5), 0 0 15px rgba(255, 105, 180, 0.4);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             text-align: left;
             color: white;
             transition: transform 0.3s, box-shadow 0.3s;
+            z-index: 10; /* Product cards appear above snowflakes */
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 30px rgba(255, 20, 147, 0.7), 0 0 20px rgba(255, 20, 147, 0.5);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
         }
 
         .product-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .product-content {
-            padding: 20px;
-            background: linear-gradient(to bottom, #1e1e1e, #292929);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px;
         }
 
         .product-name {
-            font-size: 1.8em;
+            font-size: 1.5em;
             margin-bottom: 10px;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
         .product-price {
-            font-size: 1.4em;
+            font-size: 1.2em;
             color: #ff69b4;
             margin-bottom: 10px;
         }
 
         .product-stock {
             font-size: 1em;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
         }
 
         .buy-button {
             display: inline-block;
             background-color: #ff69b4;
             color: white;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border: none;
-            border-radius: 30px;
+            border-radius: 5px;
             text-decoration: none;
             font-size: 1em;
             text-align: center;
             cursor: pointer;
-            transition: background-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+            transition: background-color 0.3s;
         }
 
         .buy-button:hover {
             background-color: #ff1493;
-            box-shadow: 0 6px 15px rgba(255, 20, 147, 0.6);
         }
 
-        /* ELEGANT Text */
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s;
+        }
+
+        .cart-icon:hover {
+            background-color: #ff1493;
+        }
+
+        .cart-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
         .elegant {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -135,35 +152,29 @@
             text-shadow: 0 4px 6px rgba(255, 0, 0, 0.6), 0 4px 12px rgba(255, 0, 0, 0.8);
         }
 
-        /* Snowflakes Animation */
-        .snowflake {
-            position: absolute;
-            top: -10px;
-            color: white;
-            font-size: 1.5em;
-            user-select: none;
-            animation: fall 6s linear infinite paused; /* Start paused */
-        }
-
-        @keyframes fall {
-            0% {
-                top: -10px;
-                opacity: 1;
-            }
-            100% {
-                top: 100vh;
-                opacity: 0;
-            }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Behind product cards but in front of background */
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
+    <canvas id="snowCanvas"></canvas>
+    <button class="cart-icon" onclick="redirectToCart()">
+        <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/Shopping-Cart-Emoji.png" alt="Cart">
+    </button>
+
     <h1>Products</h1>
     <p class="slogan">Unlock Victory – Buy Elegant Cheats Now!</p>
+
     <div class="container">
-        <!-- Product Cards -->
         <div class="product-card">
-            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/index%20rapid%20fire.avif" alt="Index" class="product-image">
+            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Index" class="product-image">
             <div class="product-content">
                 <div class="product-name">Index</div>
                 <div class="product-price">€8.00</div>
@@ -171,65 +182,12 @@
                 <a href="#" class="buy-button" onclick="updateStock('stock1')">Buy Now</a>
             </div>
         </div>
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Product 2" class="product-image">
-            <div class="product-content">
-                <div class="product-name">Anti</div>
-                <div class="product-price">€12.00</div>
-                <div class="product-stock">Stock: <span id="stock2">5</span></div>
-                <a href="#" class="buy-button" onclick="updateStock('stock2')">Buy Now</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/intelect%20cheat%20ping.avif" alt="Product 3" class="product-image">
-            <div class="product-content">
-                <div class="product-name">Intel Cheat</div>
-                <div class="product-price">€10.00</div>
-                <div class="product-stock">Stock: <span id="stock3">7</span></div>
-                <a href="#" class="buy-button" onclick="updateStock('stock3')">Buy Now</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/Stitle.avif" alt="Product 4" class="product-image">
-            <div class="product-content">
-                <div class="product-name">Stitle Cheat</div>
-                <div class="product-price">€15.00</div>
-                <div class="product-stock">Stock: <span id="stock4">3</span></div>
-                <a href="#" class="buy-button" onclick="updateStock('stock4')">Buy Now</a>
-            </div>
-        </div>
     </div>
+
     <div class="elegant">ELEGANT</div>
 
     <script>
-        // Snowflake creation with visibility control
-        let snowflakeInterval;
-        function createSnowflakes() {
-            const snowflakeCount = 30;
-
-            snowflakeInterval = setInterval(() => {
-                for (let i = 0; i < snowflakeCount; i++) {
-                    const snowflake = document.createElement('div');
-                    snowflake.classList.add('snowflake');
-                    snowflake.textContent = '❄';
-                    snowflake.style.left = `${Math.random() * 100}%`;
-                    snowflake.style.animationPlayState = 'running'; // Unpause animation
-                    snowflake.style.animationDuration = `${Math.random() * 3 + 6}s`;
-                    document.body.appendChild(snowflake);
-                    snowflake.addEventListener('animationend', () => snowflake.remove());
-                }
-            }, 1000);
-        }
-
-        document.addEventListener("visibilitychange", () => {
-            if (document.visibilityState === "visible") {
-                createSnowflakes();
-            } else {
-                clearInterval(snowflakeInterval);
-            }
-        });
-
-        // Update stock function
+        // Function to update stock
         function updateStock(stockId) {
             const stockElement = document.getElementById(stockId);
             let stock = parseInt(stockElement.textContent);
@@ -241,8 +199,58 @@
             }
         }
 
-        // Start snowflakes initially
-        createSnowflakes();
+        // Function to redirect to cart
+        function redirectToCart() {
+            const cartURL = "https://your-cart-link-here.com"; // Replace with your cart link
+            window.location.href = cartURL;
+        }
+
+        // Snowflake Animation
+        const canvas = document.getElementById('snowCanvas');
+        const ctx = canvas.getContext('2d');
+        const snowflakes = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        function createSnowflake() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height - canvas.height,
+                radius: Math.random() * 3 + 2,
+                speed: Math.random() * 3 + 1,
+            };
+        }
+
+        function updateSnowflakes() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = snowflakes.length - 1; i >= 0; i--) {
+                const flake = snowflakes[i];
+                flake.y += flake.speed;
+                if (flake.y > canvas.height) {
+                    snowflakes.splice(i, 1); // Remove snowflake if it reaches the bottom
+                } else {
+                    ctx.beginPath();
+                    ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'white';
+                    ctx.fill();
+                }
+            }
+            if (snowflakes.length < 100) {
+                snowflakes.push(createSnowflake());
+            }
+        }
+
+        function animateSnowflakes() {
+            updateSnowflakes();
+            requestAnimationFrame(animateSnowflakes);
+        }
+
+        animateSnowflakes();
     </script>
 </body>
 </html>
