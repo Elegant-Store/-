@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom UI</title>
+    <title>Custom Website</title>
     <style>
         body {
             margin: 0;
@@ -17,54 +17,27 @@
             height: 100vh;
             position: relative;
         }
-        .ui-container {
-            position: absolute;
+        .image-container {
+            position: relative;
             width: 400px;
-            height: 500px;
+            height: 300px;
             background-color: #1e1e1e;
-            border: 1px solid #555;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
             display: flex;
-            flex-direction: column;
-            padding: 20px;
+            justify-content: center;
+            align-items: center;
         }
-        .ui-title {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .ui-section {
-            margin-top: 15px;
-        }
-        .ui-section label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 1em;
-        }
-        .ui-section input[type="range"] {
-            width: 100%;
-        }
-        .ui-section input[type="checkbox"] {
-            margin-right: 10px;
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="ui-container">
-        <div class="ui-title">Custom UI</div>
-        <div class="ui-section">
-            <label><input type="checkbox"> No Jump Cooldown</label>
-            <label><input type="checkbox"> No Clip</label>
-        </div>
-        <div class="ui-section">
-            <label>Walkspeed Value</label>
-            <input type="range" min="0" max="300" value="150">
-        </div>
-        <div class="ui-section">
-            <label>Jump Power Value</label>
-            <input type="range" min="0" max="100" value="50">
-        </div>
+    <div class="image-container">
+        <img src="" alt="Custom Image">
     </div>
 </body>
 </html>
