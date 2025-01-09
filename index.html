@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iPhone 16 Pro</title>
+    <title>Custom UI</title>
     <style>
         body {
             margin: 0;
@@ -15,68 +15,71 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            position: relative;
         }
-        .container {
+        .ui-container {
+            position: absolute;
+            width: 400px;
+            height: 500px;
+            background-color: #1e1e1e;
+            border: 1px solid #555;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            transition: transform 0.1s ease;
+        }
+        .ui-container:hover {
+            cursor: pointer;
+        }
+        .ui-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
             text-align: center;
         }
-        .hero {
-            position: relative;
-            display: inline-block;
+        .ui-section {
+            margin-top: 15px;
         }
-        .hero img {
-            width: 500px;
-            border-radius: 20px;
-        }
-        .pro-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 100px;
-            font-weight: bold;
-            color: white;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-            z-index: -1;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin: 20px 0 10px;
-        }
-        p {
-            margin: 0;
-            font-size: 1.2em;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        .button {
-            display: inline-block;
-            margin: 0 10px;
-            padding: 10px 20px;
+        .ui-section label {
+            display: block;
+            margin-bottom: 5px;
             font-size: 1em;
-            color: white;
-            text-decoration: none;
-            border: 2px solid white;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
         }
-        .button:hover {
-            background-color: white;
-            color: black;
+        .ui-section input[type="range"] {
+            width: 100%;
+        }
+        .ui-section input[type="checkbox"] {
+            margin-right: 10px;
         }
     </style>
+    <script>
+        document.addEventListener('mousemove', (event) => {
+            const ui = document.querySelector('.ui-container');
+            const rect = ui.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const offsetX = (event.clientX - centerX) * 0.1;
+            const offsetY = (event.clientY - centerY) * 0.1;
+
+            ui.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        });
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <img src="https://github.com/Elegant-Store/-/blob/main/cheat%20ui.png" alt="Device Placeholder">
-            <div class="pro-text">PRO</div>
+    <div class="ui-container">
+        <div class="ui-title">Custom UI</div>
+        <div class="ui-section">
+            <label><input type="checkbox"> No Jump Cooldown</label>
+            <label><input type="checkbox"> No Clip</label>
         </div>
-        <h1>iPhone 16 Pro</h1>
-        <p>Hello, Apple Intelligence.</p>
-        <div class="buttons">
-            <a href="#" class="button">Learn more</a>
-            <a href="#" class="button">Buy</a>
+        <div class="ui-section">
+            <label>Walkspeed Value</label>
+            <input type="range" min="0" max="300" value="150">
+        </div>
+        <div class="ui-section">
+            <label>Jump Power Value</label>
+            <input type="range" min="0" max="100" value="50">
         </div>
     </div>
 </body>
