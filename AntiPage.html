@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anti</title>
+    <title>Intellect</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Styles for Stitle Details Page */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(to bottom, #141414, #1e1e1e);
             color: white;
-            overflow-y: scroll; /* Enable vertical scrolling */
-            min-height: 150vh; /* Ensure page is scrollable */
+            overflow-y: scroll;
+            min-height: 150vh;
             position: relative;
         }
 
@@ -36,8 +37,8 @@
             width: 90%;
             text-align: center;
             margin: 50px auto;
-            z-index: 3; /* Above the ELEGANT text */
             position: relative;
+            z-index: 3;
         }
 
         h1 {
@@ -106,9 +107,8 @@
             bottom: 50%;
             left: 50%;
             transform: translate(-50%, 50%);
-            z-index: 2; /* Behind container but above background */
-            transition: background 0.5s, text-shadow 0.5s;
-            pointer-events: none; /* Prevent interfering with scrolling */
+            z-index: 2;
+            pointer-events: none;
         }
 
         .elegant:hover {
@@ -122,21 +122,33 @@
 <body>
     <canvas id="snowCanvas"></canvas>
 
-    <div class="elegant">ELEGANT</div> <!-- Positioned behind the container -->
+    <div class="elegant">ELEGANT</div>
 
     <div class="container">
-        <h1>If u wanna win, get yourself Anti Cheat</h1>
-        <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Anti">
+        <h1>Intellect</h1>
+        <img src="https://github.com/Elegant-Store/-/blob/main/anti%20cheat%20ping.avif" alt="Stitle">
         <div class="price-stock">
             <span>Price: €15.00</span>
-            <span>Stock: 0</span>
+            <span>Stock: Out Of Stock</span>
         </div>
         <div class="description">
-            With <strong>Anti</strong>, you'll dominate your games like never before.  
-            Our advanced tool ensures flawless performance and bypasses all known obstacles. 
-            Get ready to take your skills to the next level with Anti!
+           With Anti, you'll dominate your games like never before. Our advanced tool ensures flawless performance and bypasses all known obstacles. Get ready to take your skills to the next level with Anti!
         </div>
-       <button id="buyNowBtn">Buy Now</button>
+        <button id="buyNowBtn">Buy Now</button>
+    </div>
+
+    <!-- Modal for Payment -->
+    <div id="paymentModal" class="modal" style="display: none;">
+        <div class="modal-content" style="background: #333; color: #fff; padding: 20px; border-radius: 10px;">
+            <span class="close" onclick="closeModal()" style="cursor: pointer; float: right; font-size: 1.5em;">&times;</span>
+            <h2>Select Payment Method</h2>
+            <select id="paymentMethod">
+                <option value="paypal">PayPal</option>
+                <option value="bitcoin">Bitcoin</option>
+            </select>
+            <input type="email" id="buyerEmail" placeholder="Enter your email" style="width: 100%; margin-top: 10px; padding: 10px; border-radius: 5px;">
+            <button onclick="processPayment()" style="margin-top: 10px;">Proceed to Pay</button>
+        </div>
     </div>
 
     <script>
@@ -222,7 +234,7 @@
 
         async function sendKey(email) {
             try {
-                const response = await fetch('https://your-api-link.com/keys'); // Replace with your API URL
+                const response = await fetch('https://pastebin.com/raw/nnAcQfR5'); // Replace with your API URL
                 if (!response.ok) {
                     throw new Error('No keys available or server error.');
                 }
@@ -236,4 +248,3 @@
     </script>
 </body>
 </html>
-
