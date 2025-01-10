@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stitle Cheat</title>
+    <title>Intellect</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Styles for Stitle Details Page */
         body {
             margin: 0;
             padding: 0;
@@ -37,8 +37,8 @@
             width: 90%;
             text-align: center;
             margin: 50px auto;
-            z-index: 3;
             position: relative;
+            z-index: 3;
         }
 
         h1 {
@@ -108,7 +108,6 @@
             left: 50%;
             transform: translate(-50%, 50%);
             z-index: 2;
-            transition: background 0.5s, text-shadow 0.5s;
             pointer-events: none;
         }
 
@@ -126,16 +125,30 @@
     <div class="elegant">ELEGANT</div>
 
     <div class="container">
-        <h1>Stitle - Precision and Speed</h1>
-        <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/Stitle.avif" alt="Stitle Cheat">
+        <h1>Intellect</h1>
+        <img src="https://github.com/Elegant-Store/-/blob/main/Stitle.avif" alt="Stitle">
         <div class="price-stock">
             <span>Price: €6.50</span>
             <span>Stock: 49</span>
         </div>
         <div class="description">
-            Introducing <strong>Stitle</strong>, the ultimate cheat for tactical advantage. With unmatched precision and speed, you’ll be unstoppable on the battlefield. Perfect for gamers who demand the best!
+           With Anti, you'll dominate your games like never before. Our advanced tool ensures flawless performance and bypasses all known obstacles. Get ready to take your skills to the next level with Anti!
         </div>
-       <button id="buyNowBtn">Buy Now</button>
+        <button id="buyNowBtn">Buy Now</button>
+    </div>
+
+    <!-- Modal for Payment -->
+    <div id="paymentModal" class="modal" style="display: none;">
+        <div class="modal-content" style="background: #333; color: #fff; padding: 20px; border-radius: 10px;">
+            <span class="close" onclick="closeModal()" style="cursor: pointer; float: right; font-size: 1.5em;">&times;</span>
+            <h2>Select Payment Method</h2>
+            <select id="paymentMethod">
+                <option value="paypal">PayPal</option>
+                <option value="bitcoin">Bitcoin</option>
+            </select>
+            <input type="email" id="buyerEmail" placeholder="Enter your email" style="width: 100%; margin-top: 10px; padding: 10px; border-radius: 5px;">
+            <button onclick="processPayment()" style="margin-top: 10px;">Proceed to Pay</button>
+        </div>
     </div>
 
     <script>
@@ -186,6 +199,7 @@
         }
 
         animateSnowflakes();
+
         // Modal Logic
         const modal = document.getElementById('paymentModal');
         const buyNowBtn = document.getElementById('buyNowBtn');
@@ -220,7 +234,7 @@
 
         async function sendKey(email) {
             try {
-                const response = await fetch('https://your-api-link.com/keys'); // Replace with your API URL
+                const response = await fetch('https://pastebin.com/raw/nnAcQfR5'); // Replace with your API URL
                 if (!response.ok) {
                     throw new Error('No keys available or server error.');
                 }
