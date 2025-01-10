@@ -107,32 +107,6 @@
             background-color: #ff1493;
         }
 
-        .cart-icon {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #ff69b4;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s;
-        }
-
-        .cart-icon:hover {
-            background-color: #ff1493;
-        }
-
-        .cart-icon img {
-            width: 30px;
-            height: 30px;
-        }
-
         .elegant {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -169,14 +143,11 @@
 </head>
 <body>
     <canvas id="snowCanvas"></canvas>
-    <button class="cart-icon" onclick="redirectToCart()">
-        <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/Shopping-Cart-Emoji.png" alt="Cart">
-    </button>
 
     <h1>Products</h1>
     <p class="slogan">Unlock Victory – Buy Elegant Cheats Now!</p>
 
-   <div class="container">
+    <div class="container">
         <div class="product-card">
             <img src="https://raw.githubusercontent.com/Elegant-Store/-/refs/heads/main/index%20rapid%20fire.avif" alt="Index" class="product-image">
             <div class="product-content">
@@ -186,7 +157,7 @@
                 <a href="IndexCheatPage.html" class="buy-button" onclick="updateStock('stock3')">Buy Now</a>
             </div>
         </div>
-       
+
         <div class="product-card">
             <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/anti%20cheat%20ping.avif" alt="Anti Cheat Ping" class="product-image">
             <div class="product-content">
@@ -205,9 +176,8 @@
                 <a href="StitleCheatPage.html" class="buy-button" onclick="updateStock('stock3')">Buy Now</a>
             </div>
         </div>
-    </div>
 
-            <div class="product-card">
+        <div class="product-card">
             <img src="https://raw.githubusercontent.com/Elegant-Store/-/main/intelect%20cheat%20ping.avif" alt="Product 3" class="product-image">
             <div class="product-content">
                 <div class="product-name">Intellect Cheat Ping</div>
@@ -218,15 +188,7 @@
         </div>
     </div>
 
-        
-    </div>
-
     <script>
-        function redirectToCart() {
-            const cartURL = "https://your-cart-link-here.com";
-            window.location.href = cartURL;
-        }
-
         const canvas = document.getElementById('snowCanvas');
         const ctx = canvas.getContext('2d');
         const snowflakes = [];
