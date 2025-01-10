@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <script src="https://www.paypal.com/sdk/js?client-id=AacVlpxdfIt_D1aw1t37vhGgGLxxm7Ah0kwhXp1CPQrnzX_zHng6N_aakL03XRvuFUVe9PBUvYxOVk4J"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"></script>
     <style>
         /* Styles for Stitle Details Page */
         body {
@@ -153,7 +153,7 @@
 
     <div class="container">
         <h1>Index</h1>
-<img src="https://raw.githubusercontent.com/Elegant-Store/-/refs/heads/main/index%20rapid%20fire.avif" alt="Index">
+        <img src="https://raw.githubusercontent.com/Elegant-Store/-/refs/heads/main/index%20rapid%20fire.avif" alt="Index">
         <div class="price-stock">
             <span>Price: €8.00</span>
             <span>Stock: 4</span>
@@ -181,6 +181,7 @@
     <div id="paypal-button-container" style="display: none;"></div>
 
     <script>
+        // Updated functionality to process email validation and proper handling.
         const canvas = document.getElementById('snowCanvas');
         const ctx = canvas.getContext('2d');
         const snowflakes = [];
@@ -229,7 +230,6 @@
 
         animateSnowflakes();
 
-        // Modal Logic
         const modal = document.getElementById('paymentModal');
         const buyNowBtn = document.getElementById('buyNowBtn');
 
@@ -243,10 +243,10 @@
 
         async function processPayment() {
             const method = document.getElementById('paymentMethod').value;
-            const email = document.getElementById('buyerEmail').value;
+            const email = document.getElementById('buyerEmail').value.trim();
 
-            if (!email) {
-                alert('Please enter your email.');
+            if (!email || !validateEmail(email)) {
+                alert('Please enter a valid email.');
                 return;
             }
 
@@ -262,13 +262,18 @@
             await sendKey(email);
         }
 
+        function validateEmail(email) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
+        }
+
         function renderPayPalButton(email) {
             paypal.Buttons({
                 createOrder: (data, actions) => {
                     return actions.order.create({
                         purchase_units: [{
                             amount: {
-                                value: '8.00' // Replace with the amount
+                                value: '8.00'
                             }
                         }]
                     });
