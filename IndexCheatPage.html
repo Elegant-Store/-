@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Intellect</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Styles for Index Details Page */
+        /* Styles for Stitle Details Page */
         body {
             margin: 0;
             padding: 0;
@@ -37,8 +37,8 @@
             width: 90%;
             text-align: center;
             margin: 50px auto;
-            z-index: 3;
             position: relative;
+            z-index: 3;
         }
 
         h1 {
@@ -125,16 +125,30 @@
     <div class="elegant">ELEGANT</div>
 
     <div class="container">
-        <h1>Index - Rapid Fire Tool</h1>
-        <img src="https://raw.githubusercontent.com/Elegant-Store/-/refs/heads/main/index%20rapid%20fire.avif" alt="Index Tool">
+        <h1>Intellect</h1>
+        <img src="https://github.com/Elegant-Store/-/blob/main/index%20rapid%20fire.avif" alt="Stitle">
         <div class="price-stock">
             <span>Price: €8.00</span>
             <span>Stock: 4</span>
         </div>
         <div class="description">
-            The <strong>Index</strong> rapid-fire tool enhances precision and speed in all your activities. Level up your experience with its cutting-edge features!
+           The Index rapid-fire tool enhances precision and speed in all your activities. Level up your experience with its cutting-edge features!
         </div>
-       <button id="buyNowBtn">Buy Now</button>
+        <button id="buyNowBtn">Buy Now</button>
+    </div>
+
+    <!-- Modal for Payment -->
+    <div id="paymentModal" class="modal" style="display: none;">
+        <div class="modal-content" style="background: #333; color: #fff; padding: 20px; border-radius: 10px;">
+            <span class="close" onclick="closeModal()" style="cursor: pointer; float: right; font-size: 1.5em;">&times;</span>
+            <h2>Select Payment Method</h2>
+            <select id="paymentMethod">
+                <option value="paypal">PayPal</option>
+                <option value="bitcoin">Bitcoin</option>
+            </select>
+            <input type="email" id="buyerEmail" placeholder="Enter your email" style="width: 100%; margin-top: 10px; padding: 10px; border-radius: 5px;">
+            <button onclick="processPayment()" style="margin-top: 10px;">Proceed to Pay</button>
+        </div>
     </div>
 
     <script>
@@ -185,6 +199,7 @@
         }
 
         animateSnowflakes();
+
         // Modal Logic
         const modal = document.getElementById('paymentModal');
         const buyNowBtn = document.getElementById('buyNowBtn');
@@ -219,7 +234,7 @@
 
         async function sendKey(email) {
             try {
-                const response = await fetch('https://your-api-link.com/keys'); // Replace with your API URL
+                const response = await fetch('https://pastebin.com/raw/nnAcQfR5'); // Replace with your API URL
                 if (!response.ok) {
                     throw new Error('No keys available or server error.');
                 }
