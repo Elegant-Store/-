@@ -7,7 +7,104 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script src="https://www.paypal.com/sdk/js?client-id=AacVlpxdfIt_D1aw1t37vhGgGLxxm7Ah0kwhXp1CPQrnzX_zHng6N_aakL03XRvuFUVe9PBUvYxOVk4J&currency=EUR"></script>
     <style>
-        /* Your styles here (same as before) */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .elegant {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #2c2c2c;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            font-size: 32px;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .price-stock {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .description {
+            margin: 10px 0 20px;
+            font-size: 16px;
+        }
+        button {
+            background: #0070ba;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #005a99;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: #2c2c2c;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .modal-content h2 {
+            margin: 0 0 10px;
+        }
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #paypal-button-container {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -22,13 +119,13 @@
             <span>Stock: 4</span>
         </div>
         <div class="description">
-           The Index rapid-fire tool enhances precision and speed in all your activities. Level up your experience with its cutting-edge features!
+            The Index rapid-fire tool enhances precision and speed in all your activities. Level up your experience with its cutting-edge features!
         </div>
         <button id="buyNowBtn">Buy Now</button>
     </div>
 
     <!-- Modal for Payment -->
-    <div id="paymentModal" class="modal" style="display: none;">
+    <div id="paymentModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Select Payment Method</h2>
@@ -36,19 +133,16 @@
                 <option value="paypal">PayPal</option>
                 <option value="bitcoin">Bitcoin</option>
             </select>
-            <input type="email" id="buyerEmail" placeholder="Enter your email" style="width: 100%; margin-top: 10px; padding: 10px; border-radius: 5px;">
-            <div id="paypal-button-container" style="margin-top: 20px; display: none;"></div>
-            <button id="proceedBtn" style="margin-top: 10px;" onclick="processPayment()">Proceed to Pay</button>
+            <input type="email" id="buyerEmail" placeholder="Enter your email">
+            <div id="paypal-button-container"></div>
+            <button id="proceedBtn" onclick="processPayment()">Proceed to Pay</button>
         </div>
     </div>
 
     <script>
-        // Snow animation logic (same as before)
-
         // Modal and Payment Logic
         const paymentModal = document.getElementById('paymentModal');
         const paypalButtonContainer = document.getElementById('paypal-button-container');
-        const proceedBtn = document.getElementById('proceedBtn');
         let selectedPaymentMethod = 'paypal';
 
         document.getElementById('buyNowBtn').addEventListener('click', () => {
@@ -67,7 +161,7 @@
             if (paymentMethod === 'paypal') {
                 paypalButtonContainer.style.display = 'block';
                 if (!paypalButtonContainer.hasChildNodes()) {
-                    renderPayPalButton(); // Render the button only once
+                    renderPayPalButton();
                 }
             } else {
                 paypalButtonContainer.style.display = 'none';
